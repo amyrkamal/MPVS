@@ -54,6 +54,6 @@ Both play in the same window. If mpv isn’t running, it will start.
 ```
 git clone https://github.com/amyrkmal/MPVS.git
 cd mpvs
-dpkg-deb --build mpvs && mkdir -p build && mv mpvs.deb build/
+dpkg-deb --build --root-owner-group ./ mpvs.deb 
 
 ```
