@@ -1,0 +1,20 @@
+#!/bin/bash
+
+SOCKET=/tmp/mpvsocket
+FILE="$1"
+
+if [ -z "$FILE" ]; then
+  echo "Usage: mpvs <video-file>"
+  exit 1
+fi
+
+if [ -S "$SOCKET" ]; then
+  echo '{ "command": ["loadfile", "'"$FILE"'", "replace"] }' | socat - "$SOCKET" 2>/dev/null
+  if [ $? -ne 0 ]; then
+    echo "Failed to communicate with mpv instance. Removing stale socket and starting new mpv."
+    rm -f "$SOCKET"
+    mpv --force-window=yes --idle=yes --input-ipc-server="$SOCKET" "$FILE" &
+  fi
+else
+  mpv --force-window=yes --idle=yes --input-ipc-server="$SOCKET" "$FILE" &
+fi

@@ -1,0 +1,9 @@
+Package: mpvs
+Version: 1.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: mpv, socat
+Maintainer: Amyr <amyr.kamal@gmail.com>
+Description: Single-instance mpv launcher using IPC.
+ A script to control mpv via IPC to reuse the same window for new videos.

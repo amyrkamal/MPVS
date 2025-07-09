@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=MPVS
+Comment=Play videos using single mpv instance
+Exec=mpvs %f
+Icon=mpv
+Terminal=false
+Type=Application
+Categories=AudioVideo;Player;Video;Audio;TV;
+StartupNotify=true
+MimeType=video/mp4;video/x-matroska;video/x-msvideo;video/*;
